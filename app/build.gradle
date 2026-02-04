@@ -1,0 +1,65 @@
+plugins {
+    alias(libs.plugins.android.application)
+    alias(libs.plugins.google.services)
+}
+
+// Chuyển đoạn mã này xuống dưới khối plugins
+def localProperties = new Properties()
+def localPropertiesFile = rootProject.file('local.properties')
+if (localPropertiesFile.exists()) {
+    localProperties.load(new FileInputStream(localPropertiesFile))
+}
+
+android {
+    namespace 'com.example.btl_android'
+    compileSdk 35
+
+    defaultConfig {
+        applicationId "com.example.btl_android"
+        minSdk 24
+        targetSdk 35
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        
+        // Cấu hình để lấy API Key từ local.properties
+        buildConfigField "String", "GEMINI_API_KEY", "\"" + localProperties.getProperty('GEMINI_API_KEY', '') + "\""
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
+    }
+    buildFeatures{
+        viewBinding true
+        buildConfig true
+    }
+}
+
+dependencies {
+    implementation platform('com.google.firebase:firebase-bom:33.1.0')
+    implementation libs.appcompat
+    implementation libs.material
+    implementation libs.activity
+    implementation libs.constraintlayout
+    implementation libs.firebase.auth
+    implementation libs.firebase.database
+    testImplementation libs.junit
+    androidTestImplementation libs.ext.junit
+    androidTestImplementation libs.espresso.core
+    
+    implementation 'com.github.bumptech.glide:glide:4.16.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.16.0'
+    implementation 'com.google.code.gson:gson:2.10.1'
+    implementation 'com.github.denzcoskun:ImageSlideshow:0.1.2'
+
+    implementation "com.google.ai.client.generativeai:generativeai:0.9.0"
+    implementation "com.google.guava:guava:31.0.1-android"
+}

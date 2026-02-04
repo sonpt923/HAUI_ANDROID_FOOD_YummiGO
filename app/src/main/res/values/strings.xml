@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">BTL_Android</string>
+    <string name="desc_favorite_button">Favorite toggle button</string>
+
+</resources>

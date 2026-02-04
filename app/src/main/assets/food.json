@@ -1,0 +1,261 @@
+[
+  {
+    "id": "pho1",
+    "name": "Phở Bò Tái",
+    "description": "Phở bò tái với nước dùng truyền thống.",
+    "price": 50000,
+    "image": "pho1",
+    "category": "Phở"
+  },
+  {
+    "id": "pho2",
+    "name": "Phở Bò Chín",
+    "description": "Phở bò chín mềm thơm, chuẩn vị Hà Nội.",
+    "price": 48000,
+    "image": "pho2",
+    "category": "Phở"
+  },
+  {
+    "id": "pho3",
+    "name": "Phở Gà",
+    "description": "Phở gà ta dai ngon, nước dùng trong.",
+    "price": 45000,
+    "image": "pho3",
+    "category": "Phở"
+  },
+  {
+    "id": "pho4",
+    "name": "Phở Bò Viên",
+    "description": "Phở bò viên kèm rau sống đầy đủ.",
+    "price": 47000,
+    "image": "pho1",
+    "category": "Phở"
+  },
+  {
+    "id": "pho5",
+    "name": "Phở Tái Gầu",
+    "description": "Tái gầu béo ngậy hòa quyện nước dùng.",
+    "price": 52000,
+    "image": "pho3",
+    "category": "Phở"
+  },
+  {
+    "id": "pho6",
+    "name": "Phở Bò Kobe",
+    "description": "Thịt bò Kobe nhập khẩu cao cấp.",
+    "price": 150000,
+    "image": "pho2",
+    "category": "Phở"
+  },
+  {
+    "id": "pho7",
+    "name": "Phở Tái Lăn",
+    "description": "Thịt bò tái xào thơm trước khi chan nước.",
+    "price": 55000,
+    "image": "pho3",
+    "category": "Phở"
+  },
+  {
+    "id": "pho8",
+    "name": "Phở Trộn",
+    "description": "Phở trộn không nước, kèm rau và nước sốt.",
+    "price": 45000,
+    "image": "pho3",
+    "category": "Phở"
+  },
+  {
+    "id": "pho9",
+    "name": "Phở Xào Bò",
+    "description": "Sợi phở xào cùng bò mềm đậm đà.",
+    "price": 52000,
+    "image": "pho1",
+    "category": "Phở"
+  },
+  {
+    "id": "pho10",
+    "name": "Phở Cuốn",
+    "description": "Phở cuốn thịt bò rau sống chấm mắm nêm.",
+    "price": 40000,
+    "image": "phocuon",
+    "category": "Phở"
+  },
+
+  {
+    "id": "bm1",
+    "name": "Bánh Mì Pate",
+    "description": "Bánh mì kèm pate béo ngậy, dưa leo, rau sống.",
+    "price": 20000,
+    "image": "banhmi",
+    "category": "Bánh mì"
+  },
+  {
+    "id": "bm2",
+    "name": "Bánh Mì Trứng",
+    "description": "Bánh mì ốp la, pate và tương ớt.",
+    "price": 18000,
+    "image": "banhmi3",
+    "category": "Bánh mì"
+  },
+  {
+    "id": "bm3",
+    "name": "Bánh Mì Chả Lụa",
+    "description": "Chả lụa thơm mềm, rau và nước sốt đặc biệt.",
+    "price": 22000,
+    "image": "banhmi2",
+    "category": "Bánh mì"
+  },
+  {
+    "id": "bm4",
+    "name": "Bánh Mì Thịt Nướng",
+    "description": "Thịt nướng thơm đậm vị miền Trung.",
+    "price": 25000,
+    "image": "banhmi4",
+    "category": "Bánh mì"
+  },
+  {
+    "id": "bm5",
+    "name": "Bánh Mì Heo Quay",
+    "description": "Heo quay giòn rụm, nước sốt đặc biệt.",
+    "price": 30000,
+    "image": "banhmi3",
+    "category": "Bánh mì"
+  },
+  {
+    "id": "bm6",
+    "name": "Bánh Mì Cá",
+    "description": "Cá chiên giòn với rau sống và tương.",
+    "price": 22000,
+    "image": "banhmi1",
+    "category": "Bánh mì"
+  },
+  {
+    "id": "bm7",
+    "name": "Bánh Mì Xíu Mại",
+    "description": "Xíu mại cay nhẹ, nước sốt hấp dẫn.",
+    "price": 23000,
+    "image": "banhmi3",
+    "category": "Bánh mì"
+  },
+  {
+    "id": "bm8",
+    "name": "Bánh Mì Gà Xé",
+    "description": "Gà xé sợi kèm bơ và hành phi.",
+    "price": 25000,
+    "image": "banhmi4",
+    "category": "Bánh mì"
+  },
+
+  {
+    "id": "bx1",
+    "name": "Bánh Xèo Tôm Thịt",
+    "description": "Vỏ giòn rụm, nhân tôm thịt, rau sống tươi ngon.",
+    "price": 40000,
+    "image": "banhxeo1",
+    "category": "Bánh xèo"
+  },
+  {
+    "id": "bx2",
+    "name": "Bánh Xèo Chay",
+    "description": "Nhân rau củ, đậu phụ dành cho người ăn chay.",
+    "price": 35000,
+    "image": "banhxeo3",
+    "category": "Bánh xèo"
+  },
+  {
+    "id": "bx3",
+    "name": "Bánh Xèo Hải Sản",
+    "description": "Tôm, mực tươi cuộn trong bánh xèo giòn.",
+    "price": 45000,
+    "image": "hbanhxeo1",
+    "category": "Bánh xèo"
+  },
+  {
+    "id": "bx4",
+    "name": "Bánh Xèo Miền Tây",
+    "description": "Phong cách đặc trưng miền Tây Nam Bộ.",
+    "price": 42000,
+    "image": "banhxeo3",
+    "category": "Bánh xèo"
+  },
+
+  {
+    "id": "bc1",
+    "name": "Bún Chả Truyền Thống",
+    "description": "Chả nướng, bún, rau sống và nước mắm pha.",
+    "price": 50000,
+    "image": "buncha1",
+    "category": "Bún chả"
+  },
+  {
+    "id": "bc2",
+    "name": "Bún Chả Hà Nội",
+    "description": "Chả viên và chả miếng đúng vị gốc Hà Nội.",
+    "price": 52000,
+    "image": "buncha2",
+    "category": "Bún chả"
+  },
+  {
+    "id": "bc3",
+    "name": "Bún Chả Chay",
+    "description": "Chả chay từ đậu phụ, rau củ và bún.",
+    "price": 45000,
+    "image": "buncha4",
+    "category": "Bún chả"
+  },
+  {
+    "id": "bc4",
+    "name": "Bún Chả Thịt Xiên",
+    "description": "Thịt xiên nướng than thơm nức.",
+    "price": 55000,
+    "image": "buncha4",
+    "category": "Bún chả"
+  },
+  {
+    "id": "bc5",
+    "name": "Bún Chả Nem Rán",
+    "description": "Thêm nem rán giòn rụm hấp dẫn.",
+    "price": 60000,
+    "image": "bunncha2",
+    "category": "Bún chả"
+  },
+  {
+    "id": "bc6",
+    "name": "Bún Chả Mắm Tôm",
+    "description": "Phiên bản đậm đà dành cho người sành ăn.",
+    "price": 52000,
+    "image": "buncha1",
+    "category": "Bún chả"
+  },
+  {
+    "id": "bc7",
+    "name": "Bún Chả Heo Quay",
+    "description": "Heo quay giòn rụm kết hợp hài hòa.",
+    "price": 58000,
+    "image": "bunch4",
+    "category": "Bún chả"
+  },
+  {
+    "id": "bc8",
+    "name": "Bún Chả Gà Nướng",
+    "description": "Gà nướng mật ong thơm mềm.",
+    "price": 53000,
+    "image": "buncha4",
+    "category": "Bún chả"
+  },
+  {
+    "id": "bc9",
+    "name": "Bún Chả Sốt Me",
+    "description": "Chả nướng rưới sốt me chua ngọt.",
+    "price": 54000,
+    "image": "buncha1",
+    "category": "Bún chả"
+  },
+  {
+    "id": "bc10",
+    "name": "Bún Chả Xá Xíu",
+    "description": "Xá xíu đậm vị kiểu Hoa kết hợp bún Việt.",
+    "price": 57000,
+    "image": "buncha2",
+    "category": "Bún chả"
+  }
+]

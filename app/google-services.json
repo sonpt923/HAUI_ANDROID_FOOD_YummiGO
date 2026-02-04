@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "883019523094",
+    "project_id": "btlandroi-df9b5",
+    "storage_bucket": "btlandroi-df9b5.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:883019523094:android:a16f2b3bce7a354e570137",
+        "android_client_info": {
+          "package_name": "com.example.btl_android"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyALJalcSrTXBlg5vx3NzhNZiMC9oG_AzUg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

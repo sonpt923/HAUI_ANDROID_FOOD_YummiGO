@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="24dp"
+    android:background="#FFFFFF"
+    tools:context=".view.auth.LoginActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center_horizontal">
+
+        <!-- Logo -->
+        <ImageView
+            android:id="@+id/imgLogo"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="16dp"
+            android:src="@drawable/logo"
+            android:contentDescription="Logo" />
+
+        <!-- App Name -->
+        <TextView
+            android:id="@+id/tvAppName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="YummiGO"
+            android:textSize="24sp"
+            android:textColor="#0077CC"
+            android:layout_marginTop="12dp"
+            android:textStyle="bold" />
+
+        <!-- Username -->
+        <EditText
+            android:id="@+id/edtUsername"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="24dp"
+            android:hint="abc@gmail.com"
+            android:background="@color/white"
+            android:padding="12dp"
+            android:textSize="@dimen/text_size"/>
+
+        <!-- Password -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="12dp"
+            android:orientation="horizontal"
+            android:background="@color/white"
+            android:gravity="center_vertical"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp">
+
+            <!-- EditText password -->
+            <EditText
+                android:id="@+id/edtPassword"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:hint="Mật khẩu"
+                android:inputType="textPassword"
+                android:background="@android:color/transparent"
+                android:padding="0dp"
+                android:textSize="@dimen/text_size" />
+
+            <!-- Nút icon con mắt -->
+            <ImageButton
+                android:id="@+id/btn_showPassword"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:src="@drawable/icon_eye"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="Hiện/ẩn mật khẩu"
+                android:padding="8dp"
+                android:alpha="0.3"/>
+        </LinearLayout>
+
+
+        <!-- Register Button -->
+        <Button
+            android:id="@+id/btnLogin"
+            android:layout_width="150dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="24dp"
+            android:text="ĐĂNG NHẬP"
+            android:textAllCaps="false"
+            android:backgroundTint="#0077CC"
+            android:textColor="#FFFFFF" />
+
+        <!-- Register Redirect -->
+        <TextView
+            android:id="@+id/tvQuenMK"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Quên mật khẩu"
+            android:textSize="@dimen/text_size"
+            android:textColor="@color/blue_btn"
+            android:layout_marginTop="16dp" />
+
+        <!-- Register Redirect -->
+        <TextView
+            android:id="@+id/tvLoginRedirect"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Bạn chưa có tài khoản YummiGO? Đăng ký"
+            android:textSize="@dimen/text_size"
+            android:textColor="#333333"
+            android:layout_marginTop="16dp" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp"
+            android:gravity="center_horizontal">
+
+            <!-- OR Separator -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="16dp">
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_weight="1"
+                    android:background="#CCC" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="or"
+                    android:textColor="#888888"
+                    android:paddingHorizontal="8dp" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_weight="1"
+                    android:background="#CCC" />
+            </LinearLayout>
+
+            <!-- Google Button -->
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Continue with Google"
+                android:drawableLeft="@drawable/icon_gg"
+                android:drawablePadding="15dp"
+                android:backgroundTint="#EEEEEE"
+                android:textColor="#000000"
+                android:layout_marginBottom="12dp"
+                />
+
+            <!-- Apple Button -->
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Continue with Apple"
+                android:drawableLeft="@drawable/icon_apple"
+                android:backgroundTint="#EEEEEE"
+                android:textColor="#000000"
+                android:layout_marginBottom="16dp" />
+
+            <!-- Terms Text -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="By clicking continue, you agree to our Terms of Service and Privacy Policy"
+                android:textAlignment="center"
+                android:textColor="#888888"
+                android:textSize="12sp"
+                android:layout_marginTop="8dp" />
+        </LinearLayout>
+
+
+    </LinearLayout>
+</ScrollView>
