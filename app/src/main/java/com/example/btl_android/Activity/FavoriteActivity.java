@@ -1,6 +1,7 @@
 package com.example.btl_android.Activity;
 
 import android.os.Bundle;
+import android.widget.ImageView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -34,6 +35,8 @@ public class FavoriteActivity extends AppCompatActivity {
 
         recyclerView = findViewById(R.id.favoriteRecyclerView);
         tinyDB = new TinyDB(this);
+        ImageView btnBack = findViewById(R.id.btn_back);
+        btnBack.setOnClickListener(v -> finish());
 
         loadFavoriteData();
     }
