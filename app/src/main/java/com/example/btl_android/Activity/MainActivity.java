@@ -91,7 +91,7 @@ public class MainActivity extends BaseActivity {
 
     private void initRecyclerView() {
         ArrayList<Food> items = new ArrayList<>();
-        items.add(new Food("pho1", "Phở Bò Tái", "Phở bò tái với nước dùng truyền thống.", 1000, "pho1", "Phở", 450));
+        items.add(new Food("pho1", "Phở Bò Tái", "Phở bò tái với nước dùng truyền thống.", 25000, "pho1", "Phở", 450));
         items.add(new Food("pho2", "Phở Bò Chín", "Phở bò chín mềm thơm, chuẩn vị Hà Nội.", 48000, "pho2", "Phở", 450));
         items.add(new Food("pho3", "Phở Gà", "Phở gà ta dai ngon, nước dùng trong.", 45000, "pho3", "Phở", 400));
         items.add(new Food("pho4", "Phở Bò Viên", "Phở bò viên kèm rau sống đầy đủ.", 47000, "pho1", "Phở", 480));
