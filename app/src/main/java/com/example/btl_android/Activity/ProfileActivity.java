@@ -1,19 +1,19 @@
 package com.example.btl_android.Activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.widget.Toast;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-import com.example.btl_android.R;
 import com.example.btl_android.databinding.ActivityProfileBinding;
 import com.example.btl_android.model.UserModel;
 import com.example.btl_android.utils.TinyDB;
+import com.example.btl_android.view.auth.LoginActivity;
+import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.ArrayList;
 
-public class ProfileActivity extends AppCompatActivity {
+public class ProfileActivity extends BaseActivity {
 
     ActivityProfileBinding binding;
     TinyDB tinyDB;
@@ -30,6 +30,21 @@ public class ProfileActivity extends AppCompatActivity {
 
         binding.btnBack.setOnClickListener(v -> finish());
         binding.btnSaveProfile.setOnClickListener(v -> saveUserData());
+
+        binding.btnLogout.setOnClickListener(v -> {
+            FirebaseAuth.getInstance().signOut();
+            
+            // Xóa thông tin đăng nhập trong SharedPreferences (nếu có)
+            // TinyDB không lưu mật khẩu nên chủ yếu signOut Firebase là đủ
+
+            // Chuyển về màn hình Login và xóa ngăn xếp Activity
+            Intent intent = new Intent(ProfileActivity.this, LoginActivity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            startActivity(intent);
+            finish();
+            
+            Toast.makeText(this, "Đã đăng xuất", Toast.LENGTH_SHORT).show();
+        });
     }
 
     private void loadUserData() {
