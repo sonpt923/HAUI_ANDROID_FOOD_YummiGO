@@ -2,6 +2,7 @@ package com.example.btl_android.view.auth;
 
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.text.SpannableString;
 import android.text.Spanned;
@@ -9,7 +10,6 @@ import android.text.TextPaint;
 import android.text.TextUtils;
 import android.text.method.LinkMovementMethod;
 import android.text.style.ClickableSpan;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -18,21 +18,21 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.btl_android.Activity.BaseActivity;
 import com.example.btl_android.Activity.MainActivity;
 import com.example.btl_android.R;
+import com.example.btl_android.utils.LocaleHelper;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
-import java.util.List;
-
-public class LoginActivity extends AppCompatActivity {
+public class LoginActivity extends BaseActivity {
 
     private EditText edtUsername, edtPassword;
     private Button btnLogin;
     private TextView tvQuenMK, tvLoginRedirect;
     private ImageButton btnShowPassword;
+    private TextView tvLangVN, tvLangEN;
 
     private FirebaseAuth mAuth;
     private boolean isPasswordVisible = false;
@@ -52,6 +52,20 @@ public class LoginActivity extends AppCompatActivity {
         tvQuenMK = findViewById(R.id.tvQuenMK);
         tvLoginRedirect = findViewById(R.id.tvLoginRedirect);
         btnShowPassword = findViewById(R.id.btn_showPassword);
+        tvLangVN = findViewById(R.id.tvLangVN);
+        tvLangEN = findViewById(R.id.tvLangEN);
+
+        updateLanguageUI();
+
+        tvLangVN.setOnClickListener(v -> {
+            LocaleHelper.setLocale(this, "vi");
+            recreate();
+        });
+
+        tvLangEN.setOnClickListener(v -> {
+            LocaleHelper.setLocale(this, "en");
+            recreate();
+        });
 
         // Xử lý hiện/ẩn mật khẩu
         btnShowPassword.setOnClickListener(view -> {
@@ -72,12 +86,12 @@ public class LoginActivity extends AppCompatActivity {
             String password = edtPassword.getText().toString().trim();
 
             if (TextUtils.isEmpty(email)) {
-                edtUsername.setError("Vui lòng nhập email");
+                edtUsername.setError(getString(R.string.enter_email));
                 return;
             }
 
             if (TextUtils.isEmpty(password)) {
-                edtPassword.setError("Vui lòng nhập mật khẩu");
+                edtPassword.setError(getString(R.string.enter_password));
                 return;
             }
 
@@ -85,13 +99,13 @@ public class LoginActivity extends AppCompatActivity {
                     .addOnCompleteListener(LoginActivity.this, task -> {
                         if (task.isSuccessful()) {
                             FirebaseUser user = mAuth.getCurrentUser();
-                            Toast.makeText(LoginActivity.this, "Đăng nhập thành công", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(LoginActivity.this, getString(R.string.login_success), Toast.LENGTH_SHORT).show();
 
                             // Chuyển sang màn hình chính
                             startActivity(new Intent(LoginActivity.this, MainActivity.class));
                             finish();
                         } else {
-                            Toast.makeText(LoginActivity.this, "Đăng nhập thất bại: " + task.getException().getMessage(),
+                            Toast.makeText(LoginActivity.this, getString(R.string.login_failed) + task.getException().getMessage(),
                                     Toast.LENGTH_LONG).show();
                         }
                     });
@@ -101,7 +115,7 @@ public class LoginActivity extends AppCompatActivity {
             String email = edtUsername.getText().toString().trim();
 
             if (TextUtils.isEmpty(email)) {
-                Toast.makeText(LoginActivity.this, "Vui lòng nhập email trước", Toast.LENGTH_SHORT).show();
+                Toast.makeText(LoginActivity.this, getString(R.string.enter_email_first), Toast.LENGTH_SHORT).show();
                 return;
             }
 
@@ -110,15 +124,31 @@ public class LoginActivity extends AppCompatActivity {
             startActivity(intent);
         });
 
+        setupRegisterRedirect();
+    }
 
+    private void updateLanguageUI() {
+        String currentLang = LocaleHelper.getLanguage(this);
+        if (currentLang.equals("vi")) {
+            tvLangVN.setTypeface(null, Typeface.BOLD);
+            tvLangVN.setTextColor(Color.BLACK);
+            tvLangEN.setTypeface(null, Typeface.NORMAL);
+            tvLangEN.setTextColor(Color.GRAY);
+        } else {
+            tvLangEN.setTypeface(null, Typeface.BOLD);
+            tvLangEN.setTextColor(Color.BLACK);
+            tvLangVN.setTypeface(null, Typeface.NORMAL);
+            tvLangVN.setTextColor(Color.GRAY);
+        }
+    }
 
-
-
-        // Tạo chữ "Đăng ký" màu xanh và có thể click
-        String fullText = "Bạn chưa có tài khoản YummiGO? Đăng ký";
+    private void setupRegisterRedirect() {
+        String fullText = getString(R.string.register_redirect);
+        String registerText = getString(R.string.register_text);
         SpannableString ss = new SpannableString(fullText);
-        int start = fullText.indexOf("Đăng ký");
-        int end = start + "Đăng ký".length();
+        int start = fullText.indexOf(registerText);
+        if (start == -1) return;
+        int end = start + registerText.length();
 
         ss.setSpan(new ClickableSpan() {
             @Override

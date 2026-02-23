@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.view.View;
 
 import androidx.activity.EdgeToEdge;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.example.btl_android.Adapter.FoodAdapter;
@@ -19,7 +18,7 @@ import com.denzcoskun.imageslider.constants.ScaleTypes;
 import com.denzcoskun.imageslider.models.SlideModel;
 
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends BaseActivity {
     ActivityMainBinding binding;
 
     @Override
@@ -92,7 +91,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void initRecyclerView() {
         ArrayList<Food> items = new ArrayList<>();
-        items.add(new Food("pho1", "Phở Bò Tái", "Phở bò tái với nước dùng truyền thống.", 50000, "pho1", "Phở", 450));
+        items.add(new Food("pho1", "Phở Bò Tái", "Phở bò tái với nước dùng truyền thống.", 1000, "pho1", "Phở", 450));
         items.add(new Food("pho2", "Phở Bò Chín", "Phở bò chín mềm thơm, chuẩn vị Hà Nội.", 48000, "pho2", "Phở", 450));
         items.add(new Food("pho3", "Phở Gà", "Phở gà ta dai ngon, nước dùng trong.", 45000, "pho3", "Phở", 400));
         items.add(new Food("pho4", "Phở Bò Viên", "Phở bò viên kèm rau sống đầy đủ.", 47000, "pho1", "Phở", 480));
@@ -117,7 +116,7 @@ public class MainActivity extends AppCompatActivity {
                     intent.putExtra("isSearch", true); // Tìm kiếm
                     startActivity(intent);
                 } else {
-                    binding.edtSearch.setError("Vui lòng nhập từ khóa");
+                    binding.edtSearch.setError(getString(R.string.enter_email));
                 }
             }
         });

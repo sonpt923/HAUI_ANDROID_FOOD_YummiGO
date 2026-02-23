@@ -3,12 +3,12 @@ package com.example.btl_android.model;
 import java.io.Serializable;
 import java.util.List;
 
-public class SavedMenu implements Serializable {
+public class Meunu implements Serializable {
     private List<Food> foods;
-    private String menuType; // "Ngẫu nhiên" hoặc "Healthy AI"
-    private String dateRange; // Ví dụ: "20/10 - 27/10"
+    private String menuType;
+    private String dateRange;
 
-    public SavedMenu(List<Food> foods, String menuType, String dateRange) {
+    public Meunu(List<Food> foods, String menuType, String dateRange) {
         this.foods = foods;
         this.menuType = menuType;
         this.dateRange = dateRange;

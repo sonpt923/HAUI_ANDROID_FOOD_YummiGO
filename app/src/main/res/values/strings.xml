@@ -1,5 +1,74 @@
 <resources>
-    <string name="app_name">BTL_Android</string>
+    <string name="app_name">YummiGO</string>
     <string name="desc_favorite_button">Favorite toggle button</string>
+    <string name="login">LOGIN</string>
+    <string name="logout">LOGOUT</string>
+    <string name="email_hint">abc@gmail.com</string>
+    <string name="password_hint">Password</string>
+    <string name="forgot_password">Forgot password?</string>
+    <string name="register_redirect">Don\'t have an account? Register</string>
+    <string name="or_text">or</string>
+    <string name="continue_with_google">Continue with Google</string>
+    <string name="continue_with_apple">Continue with Apple</string>
+    <string name="terms_service">By clicking continue, you agree to our Terms of Service and Privacy Policy</string>
+    <string name="login_success">Login successful</string>
+    <string name="login_failed">Login failed: </string>
+    <string name="enter_email">Please enter email</string>
+    <string name="enter_password">Please enter password</string>
+    <string name="enter_email_first">Please enter email first</string>
+    <string name="register_text">Register</string>
+
+    <!-- Weekly Menu -->
+    <string name="my_menu_title">My Menu</string>
+    <string name="apply_menu">Apply this menu</string>
+    <string name="create_new_menu">Create new menu</string>
+    <string name="monday">Monday</string>
+    <string name="tuesday">Tuesday</string>
+    <string name="wednesday">Wednesday</string>
+    <string name="thursday">Thursday</string>
+    <string name="friday">Friday</string>
+    <string name="saturday">Saturday</string>
+    <string name="sunday">Sunday</string>
+    <string name="random_menu">Random Menu</string>
+    <string name="healthy_ai_menu">Healthy AI Menu</string>
+    <string name="create_menu_title">Create New Menu</string>
+    <string name="gain_weight">Gain Weight</string>
+    <string name="lose_weight">Lose Weight</string>
+    <string name="keep_fit">Keep Fit</string>
+    <string name="your_goal">Your Goal</string>
+    <string name="update_profile_first">Please update profile first</string>
+    <string name="ai_error">AI Error, generating random menu</string>
+    <string name="save_menu_success">Menu saved successfully</string>
+    <string name="type_label">Type</string>
+    <string name="time_label">Time</string>
+    <string name="random">Random</string>
+    <string name="healthy_ai">Healthy AI</string>
+
+    <!-- Discovery -->
+    <string name="discovery_title">Discover Menus</string>
+    <string name="weekly_menu">Weekly Menu</string>
+    <string name="healthy_menu_ai">Healthy AI Menu Recommendations</string>
+
+    <!-- Profile    -->
+    <string name="profile_title">Profile</string>
+    <string name="email_label">Email Address</string>
+    <string name="height_label">Height (cm)</string>
+    <string name="weight_label">Weight (kg)</string>
+    <string name="age_label">Age</string>
+    <string name="gender_label">Gender</string>
+    <string name="gender_male">Male</string>
+    <string name="gender_female">Female</string>
+    <string name="save_profile_success">Profile saved successfully</string>
+    <string name="save_profile_failed">Profile save failed</string>
+    <string name="button_save_information">Save Information</string>
+
+
+    <!-- cart   -->
+    <string name="cart_title">Cart</string>
+    <string name="cart_empty">Cart is empty</string>
+    <string name="cart_remove">Remove</string>
+    <string name="cart_subtotal">Subtotal</string>
+    <string name="cart_tax">Tax</string>
+    <string name="cart_total">Total</string>
 
 </resources>

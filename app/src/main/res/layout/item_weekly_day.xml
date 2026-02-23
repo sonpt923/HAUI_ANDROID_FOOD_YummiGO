@@ -5,30 +5,38 @@
     android:layout_height="wrap_content"
     android:paddingVertical="8dp">
 
-    <!-- Left side: Day of the week -->
-    <TextView
-        android:id="@+id/tvDayOfWeek"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:rotation="-90"
-        android:text="Thứ Hai"
-        android:textColor="#757575"
-        android:textSize="14sp"
-        android:textStyle="bold"
+    <!-- Left side: Day of the week container -->
+    <FrameLayout
+        android:id="@+id/dayContainer"
+        android:layout_width="40dp"
+        android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/tvDayOfWeek"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:rotation="-90"
+            android:text="Thứ Hai"
+            android:textColor="#757575"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:singleLine="true" />
+    </FrameLayout>
 
     <!-- Right side: Food Card -->
     <androidx.cardview.widget.CardView
         android:layout_width="0dp"
-        android:layout_height="120dp"
-        android:layout_marginStart="24dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="8dp"
         app:cardCornerRadius="16dp"
-        app:cardElevation="4dp"
+        app:cardElevation="2dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/tvDayOfWeek"
+        app:layout_constraintStart_toEndOf="@+id/dayContainer"
         app:layout_constraintTop_toTopOf="parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -37,7 +45,7 @@
 
             <ImageView
                 android:id="@+id/ivFoodImage"
-                android:layout_width="120dp"
+                android:layout_width="100dp"
                 android:layout_height="match_parent"
                 android:scaleType="centerCrop"
                 android:src="@drawable/pho1"
@@ -49,37 +57,58 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="12dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="12dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="40dp"
                 android:text="Phở Bò Tái"
                 android:textColor="@color/black"
-                android:textSize="17sp"
+                android:textSize="14sp"
                 android:textStyle="bold"
+                android:ellipsize="end"
+                android:maxLines="2"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@id/ivFoodImage"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <ImageView
-                android:id="@+id/ivCalorieIcon"
-                android:layout_width="16dp"
-                android:layout_height="16dp"
-                android:layout_marginTop="8dp"
-                android:src="@drawable/icon_bell"
-                app:layout_constraintStart_toStartOf="@id/tvFoodName"
-                app:layout_constraintTop_toBottomOf="@id/tvFoodName"
-                app:tint="#FF9800" />
-
-            <TextView
-                android:id="@+id/tvCalories"
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="4dp"
-                android:text="450 kcal"
-                android:textColor="#FF9800"
-                android:textSize="14sp"
-                app:layout_constraintBottom_toBottomOf="@id/ivCalorieIcon"
-                app:layout_constraintStart_toEndOf="@id/ivCalorieIcon"
-                app:layout_constraintTop_toTopOf="@id/ivCalorieIcon" />
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginTop="2dp"
+                app:layout_constraintStart_toStartOf="@id/tvFoodName"
+                app:layout_constraintTop_toBottomOf="@id/tvFoodName">
+
+                <ImageView
+                    android:id="@+id/ivCalorieIcon"
+                    android:layout_width="12dp"
+                    android:layout_height="12dp"
+                    android:src="@drawable/icon_bell"
+                    app:tint="#FF9800" />
+
+                <TextView
+                    android:id="@+id/tvCalories"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:text="450 kcal"
+                    android:textColor="#FF9800"
+                    android:textSize="11sp" />
+            </LinearLayout>
+
+            <!-- Add to Cart Button -->
+            <ImageView
+                android:id="@+id/btnAddToCart"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_marginEnd="12dp"
+                android:layout_marginBottom="12dp"
+                android:background="@drawable/red_btnbackground"
+                android:padding="8dp"
+                android:src="@drawable/icon_add"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:tint="@color/white" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,68 @@
+<resources>
+    <string name="app_name">YummiGO</string>
+    <string name="desc_favorite_button">Nút yêu thích</string>
+    <string name="login">ĐĂNG NHẬP</string>
+    <string name="logout">ĐĂNG XUẤT</string>
+    <string name="email_hint">abc@gmail.com</string>
+    <string name="password_hint">Mật khẩu</string>
+    <string name="forgot_password">Quên mật khẩu?</string>
+    <string name="register_redirect">Bạn chưa có tài khoản? Đăng ký</string>
+    <string name="or_text">hoặc</string>
+    <string name="continue_with_google">Tiếp tục với Google</string>
+    <string name="continue_with_apple">Tiếp tục với Apple</string>
+    <string name="terms_service">Bằng cách tiếp tục, bạn đồng ý với Điều khoản dịch vụ và Chính sách bảo mật của chúng tôi</string>
+    <string name="login_success">Đăng nhập thành công</string>
+    <string name="login_failed">Đăng nhập thất bại: </string>
+    <string name="enter_email">Vui lòng nhập email</string>
+    <string name="enter_password">Vui lòng nhập mật khẩu</string>
+    <string name="enter_email_first">Vui lòng nhập email trước</string>
+    <string name="register_text">Đăng ký</string>
+
+    <string name="monday">Thứ Hai</string>
+    <string name="tuesday">Thứ Ba</string>
+    <string name="wednesday">Thứ Tư</string>
+    <string name="thursday">Thứ Năm</string>
+    <string name="friday">Thứ Sáu</string>
+    <string name="saturday">Thứ Bảy</string>
+    <string name="sunday">Chủ Nhật</string>
+    <string name="random_menu">Thực đơn ngẫu nhiên</string>
+    <string name="healthy_ai_menu">Thực đơn Healthy AI</string>
+    <string name="create_menu_title">Tạo thực đơn mới</string>
+    <string name="gain_weight">Tăng cân</string>
+    <string name="lose_weight">Giảm cân</string>
+    <string name="keep_fit">Giữ dáng</string>
+    <string name="your_goal">Mục tiêu của bạn</string>
+    <string name="update_profile_first">Vui lòng cập nhật hồ sơ trước</string>
+    <string name="ai_error">Lỗi AI, đang tạo thực đơn ngẫu nhiên</string>
+    <string name="save_menu_success">Lưu thực đơn thành công</string>
+    <string name="type_label">Loại</string>
+    <string name="time_label">Thời gian</string>
+    <string name="random">Ngẫu nhiên</string>
+    <string name="healthy_ai">Healthy AI</string>
+    
+    <!-- Discovery -->
+    <string name="discovery_title">Khám Phá Thực Đơn</string>
+    <string name="weekly_menu">Thực Đơn Tuần</string>
+    <string name="healthy_menu_ai">Thực Đơn Healthy gợi ý bởi AI</string>
+
+    <!-- Profile    -->
+    <string name="profile_title">Hồ Sơ Của Tôi</string>
+    <string name="email_label">Địa Chỉ Email"></string>
+    <string name="height_label">Chiều cao (cm)</string>
+    <string name="weight_label">Cân Nặng (kg)</string>
+    <string name="age_label">Tuổi Tác</string>
+    <string name="gender_label">Giới Tính</string>
+    <string name="gender_male">Nam</string>
+    <string name="gender_female">Nữ</string>
+    <string name="save_profile_success">Cập Nhật Hồ Sơ Thành Công</string>
+    <string name="save_profile_failed">Cập Nhật Hồ Sơ Thất Bại</string>
+    <string name="button_save_information">Cập Nhật Thông Tin</string>
+
+    <!-- cart   -->
+    <string name="cart_title">Giỏ Hàng</string>
+    <string name="cart_empty">Cart is empty</string>
+    <string name="cart_remove">Xóa</string>
+    <string name="cart_subtotal">Tạm Tính</string>
+    <string name="cart_tax">Thuế</string>
+    <string name="cart_total">Tổng</string>
+</resources>

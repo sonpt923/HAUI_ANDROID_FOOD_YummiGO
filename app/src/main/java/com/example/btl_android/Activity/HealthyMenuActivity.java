@@ -1,7 +1,6 @@
 package com.example.btl_android.Activity;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,7 +10,6 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -20,7 +18,7 @@ import com.example.btl_android.BuildConfig;
 import com.example.btl_android.R;
 import com.example.btl_android.databinding.ActivityWeeklyMenuBinding;
 import com.example.btl_android.model.Food;
-import com.example.btl_android.model.SavedMenu;
+import com.example.btl_android.model.Meunu;
 import com.example.btl_android.model.UserModel;
 import com.example.btl_android.utils.TinyDB;
 import com.google.ai.client.generativeai.GenerativeModel;
@@ -33,21 +31,18 @@ import com.google.common.util.concurrent.ListenableFuture;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Collections;
-import java.util.Date;
 import java.util.List;
 import java.util.Locale;
-import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 
-public class HealthyMenuActivity extends AppCompatActivity {
+public class HealthyMenuActivity extends BaseActivity {
 
     ActivityWeeklyMenuBinding binding;
-    private final String[] days = {"Thứ Hai", "Thứ Ba", "Thứ Tư", "Thứ Năm", "Thứ Sáu", "Thứ Bảy", "Chủ Nhật"};
+    private String[] days;
     private TinyDB tinyDB;
-    private SavedMenu tempMenu; // Thực đơn tạm thời đang xem
+    private Meunu tempMenu;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,9 +50,18 @@ public class HealthyMenuActivity extends AppCompatActivity {
         binding = ActivityWeeklyMenuBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
+        days = new String[]{
+                getString(R.string.monday),
+                getString(R.string.tuesday),
+                getString(R.string.wednesday),
+                getString(R.string.thursday),
+                getString(R.string.friday),
+                getString(R.string.saturday),
+                getString(R.string.sunday)
+        };
+
         tinyDB = new TinyDB(this);
 
-        // 1. Kiểm tra thực đơn đã lưu
         loadCurrentAppliedMenu();
 
         binding.btnBack.setOnClickListener(v -> finish());
@@ -66,19 +70,19 @@ public class HealthyMenuActivity extends AppCompatActivity {
     }
 
     private void loadCurrentAppliedMenu() {
-        ArrayList<SavedMenu> savedList = tinyDB.getListObject("APPLIED_MENU", SavedMenu.class);
+        ArrayList<Meunu> savedList = tinyDB.getListObject("APPLIED_MENU", Meunu.class);
         if (savedList != null && !savedList.isEmpty()) {
             displayMenu(savedList.get(0));
-            binding.btnSaveMenu.setVisibility(View.GONE); // Đã lưu rồi thì ẩn nút lưu
+            binding.btnSaveMenu.setVisibility(View.GONE);
         } else {
-            showSelectionDialog(); // Chưa có thì mời tạo
+            showSelectionDialog();
         }
     }
 
     private void showSelectionDialog() {
-        String[] options = {"Thực đơn ngẫu nhiên", "Thực đơn Healthy AI"};
+        String[] options = {getString(R.string.random_menu), getString(R.string.healthy_ai_menu)};
         new AlertDialog.Builder(this)
-                .setTitle("Bạn muốn tạo loại thực đơn nào?")
+                .setTitle(getString(R.string.create_menu_title))
                 .setItems(options, (dialog, which) -> {
                     if (which == 0) generateRandomMenu();
                     else showHealthyGoalDialog();
@@ -92,16 +96,16 @@ public class HealthyMenuActivity extends AppCompatActivity {
         Collections.shuffle(allFoods);
         List<Food> selection = new ArrayList<>(allFoods.subList(0, 7));
         
-        tempMenu = new SavedMenu(selection, "Ngẫu nhiên", calculateDateRange());
+        tempMenu = new Meunu(selection, getString(R.string.random), calculateDateRange());
         displayMenu(tempMenu);
         binding.btnSaveMenu.setVisibility(View.VISIBLE);
         binding.progressBar.setVisibility(View.GONE);
     }
 
     private void showHealthyGoalDialog() {
-        String[] goals = {"Tăng cân", "Giảm cân", "Giữ dáng"};
+        String[] goals = {getString(R.string.gain_weight), getString(R.string.lose_weight), getString(R.string.keep_fit)};
         new AlertDialog.Builder(this)
-                .setTitle("Mục tiêu của bạn?")
+                .setTitle(getString(R.string.your_goal))
                 .setItems(goals, (dialog, which) -> {
                     String goalKey = (which == 0) ? "tang_can" : (which == 1 ? "giam_can" : "giu_dang");
                     callGeminiAI(goalKey);
@@ -116,11 +120,10 @@ public class HealthyMenuActivity extends AppCompatActivity {
 
         if (user == null) {
             binding.progressBar.setVisibility(View.GONE);
-            Toast.makeText(this, "Hãy cập nhật thông tin cá nhân trước!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, getString(R.string.update_profile_first), Toast.LENGTH_SHORT).show();
             return;
         }
 
-        // Logic gọi Gemini API (Rút gọn để minh họa)
         GenerativeModel gm = new GenerativeModel("gemini-1.5-flash", BuildConfig.GEMINI_API_KEY);
         GenerativeModelFutures model = GenerativeModelFutures.from(gm);
         Content content = new Content.Builder().addText("Chọn 7 món cho mục tiêu " + goal).build();
@@ -132,27 +135,27 @@ public class HealthyMenuActivity extends AppCompatActivity {
                 runOnUiThread(() -> {
                     ArrayList<Food> allFoods = getAllAvailableFoods();
                     Collections.shuffle(allFoods);
-                    tempMenu = new SavedMenu(allFoods.subList(0, 7), "Healthy AI (" + goal + ")", calculateDateRange());
+                    tempMenu = new Meunu(allFoods.subList(0, 7), getString(R.string.healthy_ai) + " (" + goal + ")", calculateDateRange());
                     displayMenu(tempMenu);
                     binding.btnSaveMenu.setVisibility(View.VISIBLE);
                     binding.progressBar.setVisibility(View.GONE);
                 });
             }
+
             @Override
             public void onFailure(Throwable t) {
                 runOnUiThread(() -> {
                     binding.progressBar.setVisibility(View.GONE);
-                    Toast.makeText(HealthyMenuActivity.this, "Lỗi AI, đang dùng ngẫu nhiên thay thế", Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(HealthyMenuActivity.this, getString(R.string.ai_error), Toast.LENGTH_SHORT).show();
                     generateRandomMenu();
                 });
             }
         }, Executors.newSingleThreadExecutor());
     }
 
-    private void displayMenu(SavedMenu menu) {
+    private void displayMenu(Meunu menu) {
         binding.tvMenuInfo.setVisibility(View.VISIBLE);
-        binding.tvMenuInfo.setText("Loại: " + menu.getMenuType() + " | Thời gian: " + menu.getDateRange());
-        binding.tvSubtitle.setText("Thực đơn đang áp dụng ✨");
+        binding.tvMenuInfo.setText(getString(R.string.type_label) + ": " + menu.getMenuType() + " | " + getString(R.string.time_label) + ": " + menu.getDateRange());
         
         binding.weeklyMenuRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         binding.weeklyMenuRecyclerView.setAdapter(new HealthyAdapter(menu.getFoods()));
@@ -160,11 +163,11 @@ public class HealthyMenuActivity extends AppCompatActivity {
 
     private void saveToDatabase() {
         if (tempMenu == null) return;
-        ArrayList<SavedMenu> list = new ArrayList<>();
+        ArrayList<Meunu> list = new ArrayList<>();
         list.add(tempMenu);
         tinyDB.putListObject("APPLIED_MENU", list);
         binding.btnSaveMenu.setVisibility(View.GONE);
-        Toast.makeText(this, "Đã lưu thực đơn thành công!", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, getString(R.string.save_menu_success), Toast.LENGTH_SHORT).show();
     }
 
     private String calculateDateRange() {
@@ -201,17 +204,38 @@ public class HealthyMenuActivity extends AppCompatActivity {
             h.tvCalories.setText(f.getCalorie() + " kcal");
             int resId = getResources().getIdentifier(f.getImage(), "drawable", getPackageName());
             Glide.with(h.itemView.getContext()).load(resId).into(h.ivFoodImage);
+
+            h.btnAddToCart.setOnClickListener(v -> {
+                ArrayList<Food> cartList = tinyDB.getListObject("CART_LIST", Food.class);
+                if (cartList == null) cartList = new ArrayList<>();
+                
+                boolean exists = false;
+                for (Food item : cartList) {
+                    if (item.getName().equals(f.getName())) {
+                        item.setQuantity(item.getQuantity() + 1);
+                        exists = true;
+                        break;
+                    }
+                }
+                if (!exists) {
+                    f.setQuantity(1);
+                    cartList.add(f);
+                }
+                tinyDB.putListObject("CART_LIST", cartList);
+                Toast.makeText(HealthyMenuActivity.this, "Đã thêm " + f.getName() + " vào giỏ hàng", Toast.LENGTH_SHORT).show();
+            });
         }
         @Override public int getItemCount() { return foodList.size(); }
         class ViewHolder extends RecyclerView.ViewHolder {
             TextView tvDayOfWeek, tvFoodName, tvCalories;
-            ImageView ivFoodImage;
+            ImageView ivFoodImage, btnAddToCart;
             public ViewHolder(@NonNull View v) {
                 super(v);
                 tvDayOfWeek = v.findViewById(R.id.tvDayOfWeek);
                 tvFoodName = v.findViewById(R.id.tvFoodName);
                 tvCalories = v.findViewById(R.id.tvCalories);
                 ivFoodImage = v.findViewById(R.id.ivFoodImage);
+                btnAddToCart = v.findViewById(R.id.btnAddToCart);
             }
         }
     }

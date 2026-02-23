@@ -3,7 +3,6 @@ plugins {
     alias(libs.plugins.google.services)
 }
 
-// Chuyển đoạn mã này xuống dưới khối plugins
 def localProperties = new Properties()
 def localPropertiesFile = rootProject.file('local.properties')
 if (localPropertiesFile.exists()) {
@@ -23,7 +22,6 @@ android {
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         
-        // Cấu hình để lấy API Key từ local.properties
         buildConfigField "String", "GEMINI_API_KEY", "\"" + localProperties.getProperty('GEMINI_API_KEY', '') + "\""
     }
 
@@ -62,4 +60,7 @@ dependencies {
 
     implementation "com.google.ai.client.generativeai:generativeai:0.9.0"
     implementation "com.google.guava:guava:31.0.1-android"
+
+    // Thêm OkHttp để gọi API PayOS
+    implementation 'com.squareup.okhttp3:okhttp:4.12.0'
 }

@@ -11,7 +11,8 @@
         android:layout_width="match_parent"
         android:layout_height="200dp"
         android:background="@drawable/red_btnbackground"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="0dp" />
 
     <ImageView
         android:id="@+id/btnBack"
@@ -31,7 +32,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="Thực Đơn Của Tôi"
+        android:text="@string/my_menu_title"
         android:textColor="@color/white"
         android:textSize="24sp"
         android:textStyle="bold"
@@ -51,17 +52,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvTitle" />
 
-    <TextView
-        android:id="@+id/tvSubtitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Gợi ý bởi AI ✨"
-        android:textColor="#EEEEEE"
-        android:textSize="14sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvMenuInfo" />
-
     <LinearLayout
         android:id="@+id/layoutButtons"
         android:layout_width="match_parent"
@@ -76,7 +66,7 @@
             android:id="@+id/btnSaveMenu"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Sử dụng thực đơn này"
+            android:text="@string/apply_menu"
             android:backgroundTint="@color/white"
             android:textColor="@color/black"
             android:textAllCaps="false"
@@ -88,7 +78,7 @@
             android:id="@+id/btnNewMenu"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Tạo thực đơn mới"
+            android:text="@string/create_new_menu"
             android:backgroundTint="@color/white"
             android:textColor="@color/black"
             android:textAllCaps="false"
